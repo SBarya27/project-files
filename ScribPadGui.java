@@ -28,15 +28,16 @@ public class ScribPadGui extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textEditPane1 = new javax.swing.JTextPane();
         quickToolBar = new javax.swing.JToolBar();
-        newFileTool = new javax.swing.JButton();
-        openFileTool = new javax.swing.JButton();
-        saveFileTool = new javax.swing.JButton();
-        copyTextTool = new javax.swing.JButton();
-        cutTextTool = new javax.swing.JButton();
-        pasteTextTool = new javax.swing.JButton();
+        newFileQuickButton = new javax.swing.JButton();
+        openFileQuickButton = new javax.swing.JButton();
+        saveFileQuickButton = new javax.swing.JButton();
+        copyTextQuickButton = new javax.swing.JButton();
+        cutTextQuickButton = new javax.swing.JButton();
+        pasteTextQuickButton = new javax.swing.JButton();
+        highlightQuickButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newFile = new javax.swing.JMenuItem();
@@ -49,7 +50,14 @@ public class ScribPadGui extends javax.swing.JFrame {
         cutText = new javax.swing.JMenuItem();
         copyText = new javax.swing.JMenuItem();
         pasteText = new javax.swing.JMenuItem();
-        selectAllText = new javax.swing.JMenuItem();
+        fontEditMenu = new javax.swing.JMenu();
+        fontNameMenuItem = new javax.swing.JMenu();
+        fontSizeMenuItem = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        fontBoldMenuItem = new javax.swing.JMenuItem();
+        fontItalicMenuItem = new javax.swing.JMenuItem();
+        fontUnderlineMenuItem = new javax.swing.JMenuItem();
+        fontColorMenuItem = new javax.swing.JMenuItem();
         searchMenu = new javax.swing.JMenu();
         findChar = new javax.swing.JMenuItem();
         findNextChar = new javax.swing.JMenuItem();
@@ -60,77 +68,86 @@ public class ScribPadGui extends javax.swing.JFrame {
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
         settingMenu = new javax.swing.JMenu();
+        fontColorMenu = new javax.swing.JMenu();
+        fontHighlightColorMenuItem = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenuItem21 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(textEditPane1);
-
         quickToolBar.setRollover(true);
         quickToolBar.setAlignmentY(0.5F);
 
-        newFileTool.setText("New");
-        newFileTool.setToolTipText("New");
-        newFileTool.setFocusable(false);
-        newFileTool.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newFileTool.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        quickToolBar.add(newFileTool);
+        newFileQuickButton.setText("New");
+        newFileQuickButton.setToolTipText("New");
+        newFileQuickButton.setFocusable(false);
+        newFileQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newFileQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        quickToolBar.add(newFileQuickButton);
 
-        openFileTool.setText("Open");
-        openFileTool.setToolTipText("Open");
-        openFileTool.setFocusable(false);
-        openFileTool.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        openFileTool.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        quickToolBar.add(openFileTool);
+        openFileQuickButton.setText("Open");
+        openFileQuickButton.setToolTipText("Open");
+        openFileQuickButton.setFocusable(false);
+        openFileQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        openFileQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        quickToolBar.add(openFileQuickButton);
 
-        saveFileTool.setText("Save");
-        saveFileTool.setToolTipText("Save");
-        saveFileTool.setFocusable(false);
-        saveFileTool.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        saveFileTool.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        saveFileTool.addActionListener(new java.awt.event.ActionListener() {
+        saveFileQuickButton.setText("Save");
+        saveFileQuickButton.setToolTipText("Save");
+        saveFileQuickButton.setFocusable(false);
+        saveFileQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        saveFileQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        saveFileQuickButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveFileToolActionPerformed(evt);
+                saveFileQuickButtonActionPerformed(evt);
             }
         });
-        quickToolBar.add(saveFileTool);
+        quickToolBar.add(saveFileQuickButton);
 
-        copyTextTool.setText("Copy");
-        copyTextTool.setToolTipText("Copy");
-        copyTextTool.setFocusable(false);
-        copyTextTool.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        copyTextTool.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        quickToolBar.add(copyTextTool);
+        copyTextQuickButton.setText("Copy");
+        copyTextQuickButton.setToolTipText("Copy");
+        copyTextQuickButton.setFocusable(false);
+        copyTextQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        copyTextQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        quickToolBar.add(copyTextQuickButton);
 
-        cutTextTool.setText("Cut");
-        cutTextTool.setToolTipText("Cut");
-        cutTextTool.setFocusable(false);
-        cutTextTool.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        cutTextTool.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        quickToolBar.add(cutTextTool);
+        cutTextQuickButton.setText("Cut");
+        cutTextQuickButton.setToolTipText("Cut");
+        cutTextQuickButton.setFocusable(false);
+        cutTextQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        cutTextQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        quickToolBar.add(cutTextQuickButton);
 
-        pasteTextTool.setText("Paste");
-        pasteTextTool.setToolTipText("Paste");
-        pasteTextTool.setFocusable(false);
-        pasteTextTool.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pasteTextTool.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        quickToolBar.add(pasteTextTool);
+        pasteTextQuickButton.setText("Paste");
+        pasteTextQuickButton.setToolTipText("Paste");
+        pasteTextQuickButton.setFocusable(false);
+        pasteTextQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pasteTextQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        quickToolBar.add(pasteTextQuickButton);
+
+        highlightQuickButton.setText("Hightlight");
+        highlightQuickButton.setToolTipText("Highlight");
+        highlightQuickButton.setFocusable(false);
+        highlightQuickButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        highlightQuickButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        quickToolBar.add(highlightQuickButton);
+
+        jScrollPane1.setViewportView(jTextPane1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(quickToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
-            .addComponent(quickToolBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(quickToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(quickToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE))
         );
 
         fileMenu.setText("File");
@@ -171,8 +188,31 @@ public class ScribPadGui extends javax.swing.JFrame {
         pasteText.setText("Paste");
         editMenu.add(pasteText);
 
-        selectAllText.setText("Select All");
-        editMenu.add(selectAllText);
+        fontEditMenu.setText("Font");
+
+        fontNameMenuItem.setText("Name");
+        fontEditMenu.add(fontNameMenuItem);
+
+        fontSizeMenuItem.setText("Size");
+
+        jMenu1.setText("jMenu1");
+        fontSizeMenuItem.add(jMenu1);
+
+        fontEditMenu.add(fontSizeMenuItem);
+
+        fontBoldMenuItem.setText("Bold");
+        fontEditMenu.add(fontBoldMenuItem);
+
+        fontItalicMenuItem.setText("Italic");
+        fontEditMenu.add(fontItalicMenuItem);
+
+        fontUnderlineMenuItem.setText("Underline");
+        fontEditMenu.add(fontUnderlineMenuItem);
+
+        fontColorMenuItem.setText("Color");
+        fontEditMenu.add(fontColorMenuItem);
+
+        editMenu.add(fontEditMenu);
 
         jMenuBar1.add(editMenu);
 
@@ -207,6 +247,13 @@ public class ScribPadGui extends javax.swing.JFrame {
 
         settingMenu.setText("Setting");
 
+        fontColorMenu.setText("Color");
+
+        fontHighlightColorMenuItem.setText("Highlight Color");
+        fontColorMenu.add(fontHighlightColorMenuItem);
+
+        settingMenu.add(fontColorMenu);
+
         jMenuItem19.setText("jMenuItem1");
         settingMenu.add(jMenuItem19);
 
@@ -228,7 +275,9 @@ public class ScribPadGui extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,9 +287,9 @@ public class ScribPadGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_saveFileActionPerformed
 
-    private void saveFileToolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileToolActionPerformed
+    private void saveFileQuickButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileQuickButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_saveFileToolActionPerformed
+    }//GEN-LAST:event_saveFileQuickButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,15 +329,26 @@ public class ScribPadGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem PrintFile;
     private javax.swing.JMenuItem copyText;
-    private javax.swing.JButton copyTextTool;
+    private javax.swing.JButton copyTextQuickButton;
     private javax.swing.JMenuItem cutText;
-    private javax.swing.JButton cutTextTool;
+    private javax.swing.JButton cutTextQuickButton;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitFile;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuItem findChar;
     private javax.swing.JMenuItem findNextChar;
     private javax.swing.JMenuItem findPreChar;
+    private javax.swing.JMenuItem fontBoldMenuItem;
+    private javax.swing.JMenu fontColorMenu;
+    private javax.swing.JMenuItem fontColorMenuItem;
+    private javax.swing.JMenu fontEditMenu;
+    private javax.swing.JMenuItem fontHighlightColorMenuItem;
+    private javax.swing.JMenuItem fontItalicMenuItem;
+    private javax.swing.JMenu fontNameMenuItem;
+    private javax.swing.JMenu fontSizeMenuItem;
+    private javax.swing.JMenuItem fontUnderlineMenuItem;
+    private javax.swing.JButton highlightQuickButton;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
@@ -298,21 +358,20 @@ public class ScribPadGui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JMenuItem newFile;
-    private javax.swing.JButton newFileTool;
+    private javax.swing.JButton newFileQuickButton;
     private javax.swing.JMenuItem openFile;
-    private javax.swing.JButton openFileTool;
+    private javax.swing.JButton openFileQuickButton;
     private javax.swing.JMenuItem pasteText;
-    private javax.swing.JButton pasteTextTool;
+    private javax.swing.JButton pasteTextQuickButton;
     private javax.swing.JToolBar quickToolBar;
     private javax.swing.JMenuItem replaceText;
     private javax.swing.JMenuItem saveAsFile;
     private javax.swing.JMenuItem saveFile;
-    private javax.swing.JButton saveFileTool;
+    private javax.swing.JButton saveFileQuickButton;
     private javax.swing.JMenu searchMenu;
-    private javax.swing.JMenuItem selectAllText;
     private javax.swing.JMenu settingMenu;
-    private javax.swing.JTextPane textEditPane1;
     private javax.swing.JMenu toolMenu;
     // End of variables declaration//GEN-END:variables
 }
