@@ -59,7 +59,7 @@ public class ScribPadGui extends javax.swing.JFrame {
         fontSizeMenuItem = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         fontBoldMenuItem = new javax.swing.JMenuItem();
-        //fontBoldMenuItem.addActionListener(new StyledEditorKit.BoldAction());
+        fontBoldMenuItem.addActionListener(new StyledEditorKit.BoldAction());
         fontItalicMenuItem = new javax.swing.JMenuItem();
         fontUnderlineMenuItem = new javax.swing.JMenuItem();
         fontColorMenuItem = new javax.swing.JMenuItem();
@@ -289,7 +289,7 @@ public class ScribPadGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileActionPerformed
-        fontBoldMenuItem.addActionListener(new StyledEditorKit.BoldAction());
+        
     }//GEN-LAST:event_saveFileActionPerformed
 
     private void saveFileQuickButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileQuickButtonActionPerformed
